@@ -176,7 +176,7 @@ header {
   margin: 0.3rem 0 0;
   color: #333;
 }
-
+/*
 .favorite-btn-corner {
   position: absolute;
   top: 8px;
@@ -196,7 +196,16 @@ header {
   align-items: center;
   justify-content: center;
 }
-
+*/
+.favorite-btn-corner {
+    background-image: url('./images/Pokebola-pokeball-png-0.png');
+    background-size: 50px;
+    background-position: center;
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+    font-size: 0px;
+}
 .favorite-btn-corner:hover {
   transform: scale(1.1);
 }

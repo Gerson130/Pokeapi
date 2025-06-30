@@ -205,6 +205,22 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+async function guardarPokemon() {
+  const agregados = document.querySelector('#agregados');
+  let id = document.querySelector('.id').textContent;
+  try {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await res.json();
+    agregados.innerHTML = `
+      <img src="${data.sprites.front_default}" alt="${data.name}">
+      <h1><strong>${data.name}</strong></h1>
+    `;
+  } catch (error) {
+    console.log("Error al guardar pokemon");
+  }
+  
+} 
+
 // Asignar eventos
 document.querySelector('.nav-prev').addEventListener('click', () => changePokemon(-1));
 document.querySelector('.nav-next').addEventListener('click', () => changePokemon(1));
