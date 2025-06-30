@@ -26,6 +26,7 @@ function mostrarPokemon(data) {
     <p><strong>Tipo:</strong> ${data.types.map(t => t.type.name).join(', ')}</p>
     <p><strong>Altura:</strong> ${data.height / 10} m</p>
     <p><strong>Peso:</strong> ${data.weight / 10} kg</p>
+    <p>Id:<p class="id">${data.id}</p></p>
   `;
 }
 
@@ -44,7 +45,19 @@ async function cambiarPokemon(delta) {
   }
 }
 
-function guardarPokemon() {
+async function guardarPokemon() {
+  const agregados = document.querySelector('#agregados');
+  let id = document.querySelector('.id').textContent;
+  try {
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const data = await res.json();
+    agregados.innerHTML = `
+      <img src="${data.sprites.front_default}" alt="${data.name}">
+      <h1><strong>${data.name}</strong></h1>
+    `;
+  } catch (error) {
+    console.log("Error al guardar pokemon");
+  }
   
 } 
 //prueba
