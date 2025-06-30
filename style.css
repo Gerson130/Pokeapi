@@ -21,3 +21,14 @@ body {
   height: 80px;
   margin-top: 60vh;
 }
+
+#btnBuscar {
+    background-image: url('./images/Pokebola-pokeball-png-0.png');
+    background-size: 50px;
+    background-position: center;
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+    font-size: 0px;
+    position: fixed;
+}

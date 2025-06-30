@@ -43,4 +43,8 @@ async function cambiarPokemon(delta) {
     console.error("Error al cargar Pokémon:", error);
   }
 }
+
+function guardarPokemon() {
+  
+} 
 //prueba
