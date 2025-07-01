@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PokeDex con Stats</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PokeDex con Stats y Filtros</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
@@ -12,53 +12,59 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokémon Logo" class="logo">
     </div>
   </header>
-  
+
   <main class="container">
     <div class="search-container">
-      <input type="text" id="pokemonInput" placeholder="Ej: pikachu o 25" class="search-input">
-      <button onclick="buscarPokemon()" class="search-btn">Buscar</button>
+      <!-- Menú desplegable de filtros -->
+      <select id="filterType" onchange="cambiarFiltro()">
+        <option value="">-- Filtrar por --</option>
+        <option value="nombre">Nombre o ID</option>
+        <option value="tipo">Tipo</option>
+        <option value="habitat">Hábitat</option>
+        <option value="habilidad">Habilidad</option>
+        <option value="generacion">Generación</option>
+      </select>
+
+      <!-- Contenedor  -->
+      <div id="inputContainer"></div>
     </div>
-    
+
     <div class="pokemon-display">
-      <!-- Panel de stats a la izquierda -->
       <div id="pokemonStats" class="stats-panel">
         <h3>Stats Pokémon</h3>
-        <div class="stats-content">
-          <!-- Aquí se cargarán dinámicamente -->
-        </div>
+        <div class="stats-content"></div>
       </div>
-      
-      <!-- Carrusel central -->
+
       <div class="carousel-center">
         <div id="prevPokemon" class="compact-adjacent"></div>
-        
-        <div id="pokemonContainer" class="compact-main">  
+
+        <div id="pokemonContainer" class="compact-main">
           <button onclick="guardarPokemon()" class="favorite-btn-corner">⭐</button>
           <div class="welcome-message">
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" class="welcome-img">
             <h2>¡Bienvenido!</h2>
           </div>
         </div>
-        
+
         <div id="nextPokemon" class="compact-adjacent"></div>
       </div>
     </div>
-    
+
     <div class="nav-container">
       <button onclick="cambiarPokemon(-1)" class="nav-btn nav-prev">◄ Anterior</button>
       <button onclick="cambiarPokemon(1)" class="nav-btn nav-next">Siguiente ►</button>
     </div>
-    
+
     <div class="favorites-section">
       <h3>Mis favoritos</h3>
       <div id="agregados" class="compact-favorites"></div>
     </div>
   </main>
-  
+
   <footer id="pieDePagina">
     <p>© 2023 PokéDex Pro</p>
   </footer>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
