@@ -224,3 +224,5 @@ async function guardarPokemon() {
 // Asignar eventos
 document.querySelector('.nav-prev').addEventListener('click', () => changePokemon(-1));
 document.querySelector('.nav-next').addEventListener('click', () => changePokemon(1));
+
+//olaaaaaaaa
